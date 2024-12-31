@@ -5,3 +5,5 @@ export * from './sidebar';
 export * from './tooltip';
 export * from './skeleton';
 export * from './sheet';
+export * from './scroll-area';
+export * from './dropdown-menu';

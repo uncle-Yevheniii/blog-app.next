@@ -10,7 +10,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuItem,
   DropdownMenu,
-} from '@/components/ui/dropdown-menu';
+} from '@/components/ui';
 
 export function ThemeButton() {
   const { setTheme } = useTheme();
