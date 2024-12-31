@@ -4,8 +4,8 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarHeader,
-} from "@/components/ui/sidebar";
-import { ThemeButton } from "./theme-button";
+} from '@/components/ui/sidebar';
+import { ThemeButton } from './theme-button';
 
 export function AppSidebar() {
   return (
