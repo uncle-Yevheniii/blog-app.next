@@ -5,16 +5,21 @@ import {
   SidebarGroup,
   SidebarHeader,
 } from "@/components/ui/sidebar";
+import { ThemeButton } from "./theme-button";
 
 export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader />
+
       <SidebarContent>
         <SidebarGroup />
         <SidebarGroup />
       </SidebarContent>
-      <SidebarFooter></SidebarFooter>
+
+      <SidebarFooter>
+        <ThemeButton />
+      </SidebarFooter>
     </Sidebar>
   );
 }
