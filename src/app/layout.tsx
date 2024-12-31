@@ -1,5 +1,6 @@
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar, ThemeProvider } from "@/components";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -34,7 +35,13 @@ export default function RootLayout({
           attribute="class"
           enableSystem
         >
-          {children}
+          <SidebarProvider>
+            <AppSidebar />
+            <main>
+              <SidebarTrigger />
+              {children}
+            </main>
+          </SidebarProvider>
         </ThemeProvider>
       </body>
     </html>
