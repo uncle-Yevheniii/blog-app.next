@@ -1,38 +1,25 @@
 'use client';
 
-import * as React from 'react';
-import Link from 'next/link';
-import { Menu } from 'lucide-react';
-
+import { ThemeButton } from './theme-button';
+import { RepoLink } from './repo-link';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
+import { Logo } from './logo';
 import {
+  Separator,
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from '@/components/ui/navigation-menu';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-
-import { Logo } from './logo';
-import { UserNav } from './user-nav';
+} from '@/components/ui';
 
 const navigationItems = [
   {
-    title: 'Features',
-    href: '/features',
+    title: 'Sign In',
+    href: '/signin',
   },
   {
-    title: 'Pricing',
-    href: '/pricing',
-  },
-  {
-    title: 'About',
-    href: '/about',
-  },
-  {
-    title: 'Contact',
-    href: '/contact',
+    title: 'Sign Up',
+    href: '/signup',
   },
 ];
 
@@ -60,39 +47,15 @@ export function MenuBar() {
               </NavigationMenuList>
             </NavigationMenu>
           </nav>
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
-              >
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle Menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="pr-0">
-              <MobileNav />
-            </SheetContent>
-          </Sheet>
-          <UserNav />
+
+          <Separator className="h-6" orientation="vertical" />
+
+          <div className="flex items-center space-x-2">
+            <ThemeButton />
+            <RepoLink />
+          </div>
         </div>
       </div>
     </header>
-  );
-}
-
-function MobileNav() {
-  return (
-    <div className="flex flex-col space-y-3 p-4">
-      {navigationItems.map(item => (
-        <Link
-          key={item.title}
-          href={item.href}
-          className="text-muted-foreground hover:text-primary"
-        >
-          {item.title}
-        </Link>
-      ))}
-    </div>
   );
 }
