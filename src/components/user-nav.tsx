@@ -10,6 +10,7 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { ThemeButton } from './theme-button';
 
 export function UserNav() {
   return (
@@ -38,6 +39,9 @@ export function UserNav() {
           <DropdownMenuItem>
             Settings
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <ThemeButton />
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
