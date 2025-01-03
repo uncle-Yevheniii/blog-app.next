@@ -1,18 +1,6 @@
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
-import { AppSidebar, ThemeProvider } from '@/components';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { ThemeProvider } from '@/components';
 import type { Metadata } from 'next';
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -26,22 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider
-          disableTransitionOnChange
-          defaultTheme="system"
-          attribute="class"
-          enableSystem
-        >
-          <SidebarProvider>
-            <AppSidebar />
-            <main>
-              <SidebarTrigger />
-              {children}
-            </main>
-          </SidebarProvider>
-        </ThemeProvider>
-      </body>
+      <ThemeProvider disableTransitionOnChange defaultTheme="system" attribute="class" enableSystem>
+        {children}
+      </ThemeProvider>
     </html>
   );
 }
