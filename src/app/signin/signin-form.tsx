@@ -7,18 +7,21 @@ import { SignInSchema } from '@/validation';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { z } from 'zod';
+import { userSignIn } from '@/api/user-actions';
 
 export function SigninForm() {
   const form = useForm<z.infer<typeof SignInSchema>>({
     resolver: zodResolver(SignInSchema),
     defaultValues: {
-      email: '',
-      password: '',
+      email: 'example@emai.com',
+      password: 'Example_password123',
     },
   });
 
   function onSubmit(data: z.infer<typeof SignInSchema>) {
-    console.log(data);
+    userSignIn(data).then(res => {
+      console.log(res);
+    });
   }
 
   return (

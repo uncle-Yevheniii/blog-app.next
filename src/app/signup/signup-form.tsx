@@ -7,6 +7,7 @@ import { SignUpSchema } from '@/validation';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { z } from 'zod';
+import { userSignUp } from '@/api/user-actions';
 
 export function SignupForm() {
   const form = useForm<z.infer<typeof SignUpSchema>>({
@@ -19,7 +20,9 @@ export function SignupForm() {
   });
 
   function onSubmit(data: z.infer<typeof SignUpSchema>) {
-    console.log(data);
+    userSignUp(data).then(res => {
+      console.log(res);
+    });
   }
 
   return (
