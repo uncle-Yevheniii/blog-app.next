@@ -16,7 +16,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <ThemeProvider disableTransitionOnChange defaultTheme="system" attribute="class" enableSystem>
         <MenuBar />
-        {children}
+
+        <div className="flex min-h-[calc(100vh-56.8px)] w-full items-center justify-center ">
+          {children}
+        </div>
       </ThemeProvider>
     </html>
   );
