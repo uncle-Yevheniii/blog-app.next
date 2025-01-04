@@ -1,4 +1,5 @@
 import { getAllPosts } from '@/api/post-actions';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui';
 
 type searchParamsProp = {
   limit?: string;
@@ -13,5 +14,19 @@ export default async function Home(props: { searchParams?: Readonly<Promise<sear
 
   const res = await getAllPosts(page, limit);
   console.log(res);
-  return <></>;
+  return (
+    <div className="w-full max-w-xl">
+      {res.posts.map(post => (
+        <>
+          <Card className="my-4">
+            <CardHeader>
+              <CardTitle className="text-2xl">Username</CardTitle>
+              <CardDescription>{post.titlePost}</CardDescription>
+            </CardHeader>
+            <CardContent></CardContent>
+          </Card>
+        </>
+      ))}
+    </div>
+  );
 }
