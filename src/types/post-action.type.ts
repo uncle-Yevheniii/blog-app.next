@@ -5,12 +5,17 @@ export type Like = {
   postId: number;
 };
 
+export type User = {
+  id: number;
+  name: string;
+};
+
 export type Post = {
   id: number;
   updatedAt: string;
   createdAt: string;
   titlePost: string;
-  userId: number;
+  user: User;
   likes: Array<Like>;
   likeCount: number;
 };
